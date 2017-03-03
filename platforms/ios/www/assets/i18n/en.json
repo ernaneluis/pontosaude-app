@@ -1,0 +1,62 @@
+{
+  "HELLO": "ok",
+  "menu":{
+    "Map":"Map",
+    "Report":"Report a Crime",
+    "Logout":"Logout"
+  },
+  "crimeType": {
+      "Theft": "Theft",
+      "Threat": "Threat",
+      "Bodily injury": "Bodily injury",
+      "Car Break-in": "Car Break-in",
+      "Attempted robbery": "Attempted robbery",
+      "Robbery": "Robbery",
+      "Household burglary": "Household burglary",
+      "Commercial Burglary": "Commercial Burglary",
+      "Car Robbery": "Car Robbery",
+      "Rape": "Rape",
+      "Shootout": "Shootout",
+      "Flash rob": "Flash rob",
+      "Attempted mudder": "Attempted mudder",
+      "Kidnapping": "Kidnapping",
+      "Mudder": "Mudder",
+      "Bank Robbery": "Bank Robbery"
+  },
+  "login":{
+    "facebook" : "Login with Facebook"
+  },
+  "message":{
+    "wait":"Please wait...",
+    "fail":"Fail",
+    "denied":"Access Denied",
+    "success":"Success!",
+    "thank":"Thank you for your contribution!"
+  },
+  "map":{
+    "others":"Others",
+    "crimesQnt" : "crimes reported in the last 3 months",
+    "fail":"Fail",
+    "failMsg": "no crime reported"
+  },
+  "report":{
+    "title":"Report a Crime",
+    "instructionMap": "Touch on the location of the crime",
+    "validation":
+    {
+      "fail":"Fail",
+      "setAddress": "Must select the location",
+      "general": "Please fill out all details accurately."
+    },
+    "form":
+    {
+      "date":"Date",
+      "time":"Time",
+      "damage":"Damage",
+      "type":"Type of Crime",
+      "description":"Description",
+      "descriptionPlace":"Describe how was the crime.",
+      "submit":"Send Report"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+
+
+
+<ion-header>
+  <ion-navbar>
+
+    <ion-title>
+      beSafe
+   </ion-title>
+
+
+     <ion-buttons end>
+     <button ion-button icon-only (click)="changeMapStyle()">
+       <ion-icon name="settings" ></ion-icon>
+     </button>
+   </ion-buttons>
+
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-fab left bottom>
+    <button ion-fab color="light" (click)="showMyLocation()" ><ion-icon name="locate" id="icon-map"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="createIssue()" ><ion-icon name="add" id="icon-map"></ion-icon></button>
+  </ion-fab>
+
+
+
+    <ion-grid id="grid2"  ui-draggable="false" >
+      <ion-row class="subtitle">
+          <ion-col >
+            crimesQuant
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div #map id="map" ></div>
+</ion-content>

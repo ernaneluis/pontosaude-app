@@ -1,0 +1,61 @@
+{
+  "HELLO": "pt",
+  "menu":{
+    "Map":"Mapa",
+    "Report":"Reportar Crime",
+    "Logout":"Sair"
+  },
+  "crimeType": {
+      "Theft": "Furto",
+      "Threat": "Ameaça",
+      "Bodily injury": "Agressão física",
+      "Car Break-in": "Arrombamento de automóvel",
+      "Attempted robbery": "Tentativa de assalto",
+      "Robbery": "Assalto",
+      "Household burglary": "Arrombamento comercial",
+      "Commercial Burglary": "Arrombamento residencial",
+      "Car Robbery": "Roubo de automível",
+      "Rape": "Estupro",
+      "Shootout": "Tiroteio",
+      "Flash rob": "Assalto a grupo",
+      "Attempted mudder": "Tentativa de Homicídio",
+      "Kidnapping": "Sequestro",
+      "Mudder": "Homicídio",
+      "Bank Robbery": "Assalto a Banco"
+  },
+  "login":{
+    "facebook" : "Entre com Facebook"
+  },
+  "message":{
+    "wait":"Por favor espere...",
+    "fail":"Falha",
+    "denied":"Acesso negado",
+    "success":"Sucesso!",
+    "thank":"Obrigado por sua contribuição!"
+  },
+  "map":{
+    "others":"Outros",
+    "crimesQnt" : "ocorrências registradas nos últimos 3 meses",
+    "fail":"Falha",
+    "failMsg": "Nenhuma ocorrências registrada"
+  },
+  "report":{
+    "title":"Reportar um Crime",
+    "instructionMap": "Toque no local da ocorrência",
+    "validation":{
+      "fail":"Falha",
+      "setAddress": "Deve selecionar no local da ocorrência",
+      "general": "Favor preencher todas as informações solicitadas."
+    },
+    "form":{
+      "date":"Data",
+      "time":"Hora",
+      "damage":"Dano Aproximado",
+      "type":"Tipo da Ocorrência",
+      "description":"Descrição",
+      "descriptionPlace":"Descreva como ocorreu o crime.",
+      "submit":"Enviar Ocorrência"
+    }
+  }
+
+}

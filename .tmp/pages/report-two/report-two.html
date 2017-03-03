@@ -1,0 +1,64 @@
+<!--
+  Generated template for the ReportTwo page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Report 2/2</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+ <ion-list #reportFormList >
+     <form [formGroup]="reportForm">
+
+       <ion-item>
+         <ion-label>Date*</ion-label>
+         <ion-datetime displayFormat="DD/MM/YYYY" formControlName="reportDate" ></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Time*</ion-label>
+          <ion-datetime  displayFormat="H:mm" formControlName="reportTime" ></ion-datetime>
+        </ion-item>
+
+
+         <ion-item>
+             <ion-label>Damages Value R$</ion-label>
+             <ion-input  formControlName="damage" type="number" placeholder="100.00"></ion-input>
+         </ion-item>
+
+         <ion-item>
+             <ion-label>Type*</ion-label>
+             <ion-select formControlName="type" >
+                 <ion-option value="public" checked="true">Public</ion-option>
+                 <ion-option value="friends">Friends Only</ion-option>
+                 <ion-option value="private">Private</ion-option>
+             </ion-select>
+         </ion-item>
+
+         <ion-item>
+             <ion-label stacked>Description</ion-label>
+             <ion-textarea placeholder="Descreva como ocorreu o crime."  formControlName="description"></ion-textarea>
+         </ion-item>
+
+         <!-- <ion-item>
+          <ion-label>Confirm Terms*</ion-label>
+          <ion-checkbox formControlName="confirmTerms" color="dark"   ></ion-checkbox>
+        </ion-item> -->
+
+     </form>
+
+ </ion-list>
+
+  <button ion-button color="danger" (click)="save()">Submit Report</button>
+</ion-content>

@@ -1,0 +1,62 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_IOS": "AIzaSyBDOsSmQGKzpeBzbszCw5ZO5V8zYKpftvw",
+            "NSLOCATIONWHENINUSEUSAGEDESCRIPTION": "Show your location on the map",
+            "NSLOCATIONALWAYSUSAGEDESCRIPTION": "Trace your location on the map",
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        },
+        "cordova-plugin-mauron85-background-geolocation": {
+            "ALWAYS_USAGE_DESCRIPTION": "This app requires background location tracking",
+            "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        }
+    },
+    "dependent_plugins": {
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        },
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        }
+    }
+}

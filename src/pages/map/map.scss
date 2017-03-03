@@ -1,0 +1,104 @@
+// page-home {
+//
+// }
+
+
+.ios, .md {
+
+    map  {
+
+      .scroll-content {
+        height: 100%
+      }
+
+      #map {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      #icon-map
+      {
+        font-size: 4.4rem;
+      }
+        #grid
+        {
+          position: absolute;
+
+          z-index: 999;
+          pointer-events: none;
+
+          height: 100%;
+          width: 70%;
+
+          background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+          background: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+          background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+        }
+
+        #grid .content
+        {
+          margin: auto 0;
+        }
+
+      #grid ion-badge
+      {
+          min-width: inherit;
+          font-size: 0.9rem;
+      }
+
+
+        #grid .label
+        {
+          font-size: 0.9rem;
+          text-transform: uppercase;
+          font-weight: bold;
+          color: white;
+        }
+
+        #grid .percentage
+        {
+          font-size: 2rem;
+          font-family: sans-serif;
+          color: white;
+          //text-shadow: 2px 2px 1px #000;
+        }
+
+        .toolbar-title {
+          overflow: visible;
+          position: relative;
+          .subtitle {
+            position: absolute;
+            top: 8px;
+            font-size: 66%;
+          }
+        }
+
+        #grid2{
+
+          z-index: 999;
+          position: absolute;
+          bottom: 6.3rem;
+        }
+
+        #grid2 .subtitle{
+          text-align: center;
+        }
+
+        #grid2 ion-col
+        {
+          background-color: rgba(0,0,0,0.8);
+          border-radius: 12px;
+          text-align: center;
+          margin: 0 auto;
+          font-size: 1.2rem;
+          color:white;
+          flex: 0 0 58%;
+          max-width: 58%;
+        }
+
+    }
+
+
+
+}

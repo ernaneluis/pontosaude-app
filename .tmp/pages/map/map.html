@@ -1,0 +1,58 @@
+<!-- <ion-view> -->
+    <ion-content>
+
+    </ion-content>
+<!-- </ion-view> -->
+
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>beSafe  </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-fab left bottom>
+    <button ion-fab color="light" (click)="showMyLocation()" ><ion-icon name="locate" id="icon-map"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="createIssue()" ><ion-icon name="add" id="icon-map"></ion-icon></button>
+  </ion-fab>
+
+
+  <ion-grid id="grid"  ui-draggable="false" >
+    <div class="content">
+    <ion-row>
+      <ion-col width-33>
+        <ion-row class="percentage" >  {{safe.high.percentage}} </ion-row>
+        <ion-row class="label">   <ion-badge item-right color="danger"> {{safe.high.name}}</ion-badge> </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>
+        <ion-row class="percentage" > {{safe.medium.percentage}} </ion-row>
+        <ion-row class="label">   <ion-badge item-right color="medium"> {{safe.medium.name}}</ion-badge> </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>
+        <ion-row class="percentage" > {{safe.low.percentage}} </ion-row>
+        <ion-row class="label">   <ion-badge item-right color="low">{{safe.low.name}}</ion-badge> </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-33>
+        <ion-row class="percentage" > {{safe.other.percentage}}  </ion-row>
+        <ion-row class="label">   <ion-badge item-right color="light">{{safe.other.name}}</ion-badge> </ion-row>
+      </ion-col>
+    </ion-row>
+    </div>
+  </ion-grid>
+
+    <div #map id="map" ></div>
+</ion-content>

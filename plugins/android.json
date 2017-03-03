@@ -1,0 +1,57 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-mauron85-background-geolocation": {
+            "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
+            "CONTENT_AUTHORITY": "$PACKAGE_NAME",
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        }
+    },
+    "dependent_plugins": {
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "pro.schild.besafe"
+        }
+    }
+}
