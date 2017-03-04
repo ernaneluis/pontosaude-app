@@ -25,7 +25,7 @@ export class MapModel
             //  center: latLng,
              disableDefaultUI: true,
              styles: this.getDarkStyle(),
-             zoom: 14,
+             zoom: 15,
              maxZoom: 19,
              minZoom: 11
           }
@@ -156,6 +156,71 @@ export class MapModel
             map: map,
              icon: "img/point.png"
           });
+    }
+
+    addMarker(map, point)
+    {
+      /*GURO TERCEIRO" : "http://labs.google.com/ridefinder/images/mm_20_blue.png",
+      "PLANO DE SAUDE PUBLICO" : "http://labs.google.com/ridefinder/images/mm_20_red.png",
+      "GRATUIDADE" : "http://labs.google.com/ridefinder/images/mm_20_red.png",
+      "MISTO" : "http://labs.google.com/ridefinder/images/mm_20_green.png"*/
+      
+        var h = 32 //w
+        var w = 37 //h
+        var icon = ""
+        var pin = {
+                    "SUS":"http://maps.google.com/mapfiles/kml/paddle/red-blank.png",
+                    "PARTICULAR" : "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png",
+                    "PLANO / SEGURO PROPRIO" : "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png",
+                    "PLANO DE SAUDE PRIVADO" : "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png",
+                    "PLANO / SEGURO TERCEIRO" : "http://maps.google.com/mapfiles/kml/paddle/blu-blank.png",
+                    "PLANO DE SAUDE PUBLICO" : "http://maps.google.com/mapfiles/kml/paddle/red-blank.png",
+                    "GRATUIDADE" : "http://maps.google.com/mapfiles/kml/paddle/red-blank.png",
+                    "MISTO" : "http://maps.google.com/mapfiles/kml/paddle/grn-blank.png"
+                  }
+
+        if(point.convenio.length == 1)
+        {
+
+          icon = new google.maps.MarkerImage(pin[point.convenio[0]], null, null, null, new google.maps.Size(h,w));
+        }
+        else
+        {
+          var particular = 0
+          var publico = 0
+
+          for(var i = 0; i < point.convenio.length; i++)
+          {
+              if(point.convenio[i] == "SUS" || point.convenio[i] == "GRATUIDADE")
+              {
+                publico++
+              }
+              else
+              {
+                particular++
+              }
+          }
+
+          if(particular == 0 && publico > 0)
+          {
+            icon = new google.maps.MarkerImage(pin["GRATUIDADE"], null, null, null, new google.maps.Size(h,w));
+          }
+          else if(particular > 0 && publico == 0)
+          {
+            icon = new google.maps.MarkerImage(pin["PARTICULAR"], null, null, null, new google.maps.Size(h,w));
+          }
+          else if(particular > 0 && publico > 0)
+          {
+              icon = new google.maps.MarkerImage(pin["MISTO"], null, null, null, new google.maps.Size(h,w));
+          }
+
+        }
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(point.lat, point.lng),
+            map: map,
+            icon: icon
+          });
+        return marker;
     }
 
     addPointsToHeatmap(map, points)

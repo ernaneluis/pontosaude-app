@@ -15,4 +15,21 @@
 
 <ion-content padding>
 
+
+
+  <ion-card *ngFor="let data of dataPoints" (click) = "viewOpen(data)">
+    <ion-card-content>
+      <ion-card-title>
+        {{data.nome}}
+        </ion-card-title>
+      <p>
+        {{data.endereco_completo}}
+      </p>
+      <ion-badge item-right *ngFor="let item of data.convenio" >{{item}} </ion-badge>
+
+    </ion-card-content>
+  </ion-card>
+
+
+
 </ion-content>

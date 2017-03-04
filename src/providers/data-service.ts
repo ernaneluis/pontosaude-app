@@ -40,7 +40,17 @@ export class DataService {
      // We're using Angular HTTP provider to request the data,
      // then on the response, it'll map the JSON data to a parsed JS object.
      // Next, we process the data and resolve the promise with the new data.
-     this.http.get('http://pontosaude-ernaneluis.rhcloud.com/api/v1/pontos?southwestlat=-3.765324&southwestlng=-38.566359&northeastlat=-3.727805&northeastlng=-38.469885')
+
+     var url = "http://pontosaude-ernaneluis.rhcloud.com/api/v1/pontos?";
+
+     url += "&southwestlat=" + data.swlat
+     url += "&southwestlng=" + data.swlng
+     url += "&northeastlat=" + data.nelat
+     url += "&northeastlng=" + data.nelng
+
+     console.log(url)
+
+     this.http.get(url)
        .map(res => res.json())
        .subscribe(data => {
          // we've got back the raw data, now generate the core schedule data
@@ -50,18 +60,33 @@ export class DataService {
        });
     });
 
-      // return query.find().then( (crimesInRadius) => {
-      //
-      //   // let points = [];
-      //
-      //
-      //   return pointsData;
-      //
-      // });
 
   }
 
+  getInfoFromId(empresa_id)
+  {
 
+    return new Promise(resolve => {
+     // We're using Angular HTTP provider to request the data,
+     // then on the response, it'll map the JSON data to a parsed JS object.
+     // Next, we process the data and resolve the promise with the new data.
+
+     var url = "http://pontosaude-ernaneluis.rhcloud.com/api/v1/empresa/" + empresa_id
+
+     console.log(url)
+
+     this.http.get(url)
+       .map(res => res.json())
+       .subscribe(data => {
+         // we've got back the raw data, now generate the core schedule data
+         // and save the data for later reference
+          /*data;*/
+         resolve(data);
+       });
+    });
+
+
+  }
 
 
 

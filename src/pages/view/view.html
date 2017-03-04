@@ -1,0 +1,90 @@
+<!--
+  Generated template for the View page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{empresa.nome}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+
+  <ion-card-header>
+    {{empresa.nome}}
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item>
+        <p>{{empresa.rua}}, {{empresa.numero}},  {{empresa.bairro}}</p>
+        <p>{{empresa.complemento}} </p>
+        <p>{{empresa.cep}} </p>
+        <p>{{empresa.municipio}}, {{empresa.uf}} </p>
+      </ion-item>
+  </ion-card-content>
+
+    <ion-row>
+
+      <ion-col center text-center>
+        <ion-note>
+          3km
+          <ion-badge item-right>260km</ion-badge>
+        </ion-note>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button icon-left clear>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>Rota</div>
+        </button>
+      </ion-col>
+
+    </ion-row>
+
+</ion-card>
+
+
+<ion-card>
+  <ion-card-header>   Atendimento Prestado </ion-card-header>
+  <ion-list>
+    <ion-item *ngFor="let item of info?.atendimento_prestado">  <ion-badge item-right>{{item.convenio}} </ion-badge> <p>{{item.tipo}} </p>   </ion-item>
+  </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>   Serviços de Apoio  </ion-card-header>
+  <ion-list>
+    <ion-item *ngFor="let item of info?.servicos_apoio"> <p>{{item.nome}}</p>  </ion-item>
+  </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>    Classificação </ion-card-header>
+  <ion-list>
+    <ion-item *ngFor="let item of info?.servicos_classificacao"> <p>{{item.descricao}}</p>  </ion-item>
+  </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>   Serviços Especializados </ion-card-header>
+  <ion-list>
+    <ion-item *ngFor="let item of info?.servicos_especializados"> <p>{{item.nome}} </p> </ion-item>
+  </ion-list>
+</ion-card>
+
+
+
+<ion-card >
+  <ion-card-header>   Leitos </ion-card-header>
+  <ion-list>
+    <ion-item *ngFor="let item of info?.leitos" > <p>{{item.nome}}</p>  </ion-item>
+  </ion-list>
+</ion-card>
+
+</ion-content>

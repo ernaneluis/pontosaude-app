@@ -16,8 +16,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
 
-  rootPage: any;
-  pages: Array<{title: string, component: any}>;
+  data: any;
 
   tab1Root = GoogleMapView;
   tab2Root = ListPage;

@@ -9,7 +9,7 @@ import { GoogleMapView } from '../pages/map/map';
 import { ListPage } from '../pages/list/list';
 import { ReportPage } from '../pages/report/report';
 import { ReportTwoPage } from '../pages/report-two/report-two';
-
+import { ViewPage } from '../pages/view/view';
 import { LocationTracker } from '../providers/location-tracker';
 import { DataService } from '../providers/data-service';
 
@@ -20,7 +20,8 @@ import { DataService } from '../providers/data-service';
     GoogleMapView,
     ReportPage,
     ReportTwoPage,
-    ListPage
+    ListPage,
+    ViewPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -33,7 +34,8 @@ import { DataService } from '../providers/data-service';
     GoogleMapView,
     ReportPage,
     ReportTwoPage,
-    ListPage
+    ListPage,
+    ViewPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, LocationTracker, DataService]
 })

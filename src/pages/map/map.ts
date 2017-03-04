@@ -8,25 +8,12 @@ import { ReportPage } from '../report/report';
 import {MapModel} from '../../models/map-model';
 import { LocationTracker } from '../../providers/location-tracker';
 import { DataService } from '../../providers/data-service';
-// import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
-
-// import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import 'rxjs/Rx';
 import * as moment from 'moment';
+import { Events } from 'ionic-angular';
 
 declare var google;
 
-//
-// export class UserPosition {
-//   lat: any;
-//   lng: any;
-//   googleLatLng: any;
-//
-//
-//   constructor(lat, lng) {
-//     this.lat = lat;
-//     this.lng = lng;
-//   }
-// }
 
 
 @Component({
@@ -52,7 +39,7 @@ export class GoogleMapView {
   crimeTypeTranslation:any;
   mapStyleColor:any = true;
   interpolatedPoints:any = {heatmap:[], circle:[]};
-  crimesQuant: any;
+  bounds: any;
 
  constructor(private navCtrl: NavController,
   //  public af: AngularFire,
@@ -60,7 +47,7 @@ export class GoogleMapView {
    public toastCtrl: ToastController,
    public locationTracker: LocationTracker,
    public dataService: DataService,
-  //  public translate: TranslateService,
+   public events: Events,
    public alertCtrl: AlertController) {
 
 
@@ -79,12 +66,6 @@ export class GoogleMapView {
        }, 5000);
 
 
-
-
-
-
-
-
     this.locationTracker.startBackgroundTracking();
  }
 
@@ -94,6 +75,19 @@ ionViewDidLoad()
   this.loadMap();
 }
 
+mapZoomChanged(zoom)
+{
+
+  if(zoom >= 15 && zoom <= 17)
+  {
+    /*this.loadPointsFromBounds(this.bounds);*/
+    console.log("mapZoomChanged")
+  }
+
+}
+
+
+
 
 loadMap()
 {
@@ -102,57 +96,108 @@ loadMap()
 
       console.log("user loc " +position.lat + " " + position.lng)
       //debugger
+
+      let latLng = new google.maps.LatLng(-3.7337621, -38.5350491);
       // let latLng = new google.maps.LatLng(-23.4744096, -46.6700553);
-      let latLng = new google.maps.LatLng(position.lat, position.lng);
+
+      // let latLng = new google.maps.LatLng(position.lat, position.lng);
 
       this.userPosition = new google.maps.LatLng(position.lat, position.lng);
+
       let mapOptions = this.mapModel.getMapConfig();
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
       this.map.setCenter(latLng);
-      this.loadPointsFromLocation(latLng);
+
       this.mapModel.addUserPosition(this.map, latLng);
+
+       this.map.addListener('zoom_changed', () => {
+          this.bounds = this.map.getBounds()
+       });
+
+
+        this.map.addListener('zoom_changed', () => {
+          this.mapZoomChanged(this.map.getZoom())
+        });
+
+        google.maps.event.addListenerOnce(this.map, 'idle', () => {
+              //loaded fully
+              this.bounds = this.map.getBounds()
+              this.loadPointsFromBounds(this.bounds);
+        });
+
+
 
     });
 
 
   }
 
-  loadPointsFromLocation(userlatLng)
+
+
+
+  loadPointsFromBounds(bounds)
   {
       let data:any = {}
-      data = {geolocation:{lat:userlatLng.lat(), lng:userlatLng.lng() }};
+      data = {
+        swlat:bounds.getSouthWest().lat(),
+        swlng:bounds.getSouthWest().lng(),
+        nelat:bounds.getNorthEast().lat(),
+        nelng:bounds.getNorthEast().lng()
+      };
 
       this.dataService.getPointsFromLocation(data).then(data => {
          this.dataPoints = data;
-         console.log(data)
+
+        this.events.publish('data:loaded', data);
+
+         if(this.dataPoints.length == 0)
+         {
+           this.showPopup("fail", "failMsg")
+         }
+         else
+         {
+           for(var i =0; i< this.dataPoints.length; i ++)
+           {
+             var marker = this.mapModel.addMarker(this.map, this.dataPoints[i])
+             this.addInfoWindow(this.map, marker, this.dataPoints[i])
+           }
+
+         }
+
       });
 
-      // this.dataService.getPointsFromLocation(data).then((result) =>
-      // {
-      //     console.log(result);
-      //     this.pointsData = result;
-      //
-      //     if(result.length == 0)
-      //     {
-      //         this.showPopup("fail", "failMsg")
-      //         this.crimesQuant = "failMsg"
-      //     }
-      //     else
-      //     {
-      //
-      //
-      //     }
-      //
-      // });
   }
 
+  addInfoWindow(map, marker, data)
+  {
 
-  // this.safe = {
-  //   high:    {percentage:: "00%", name:"..." },
-  //   medium:  {percentage:: "00%", name:"..." },
-  //   low:     {percentage:: "00%", name:"..." },
-  //   other:   {percentage:: "00%", name:"..." }
-  // };
+
+
+       google.maps.event.addListener(marker, 'click', () => {
+
+         let content = "<h5>" + data.nome + "</h5>";
+         content += "<p>" + data.endereco_completo + "<p>";
+         content += "<p>" + data.tipo + "<p>";
+
+         var div = document.createElement('div');
+         div.innerHTML = content;
+
+         let infoWindow = new google.maps.InfoWindow({
+           content: div
+         });
+
+          infoWindow.open(map, marker);
+
+          div.onclick = function(){
+            alert(data.id)
+          };
+
+        });
+
+
+        //-3.734169, -38.531445
+  }
+
 
 
 
