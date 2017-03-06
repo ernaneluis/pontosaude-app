@@ -141,6 +141,15 @@ module.exports = [
             "analytics",
             "ga"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-email/www/email_composer.js",
+        "id": "cordova-plugin-email.EmailComposer",
+        "pluginId": "cordova-plugin-email",
+        "clobbers": [
+            "cordova.plugins.email",
+            "plugin.email"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -160,7 +169,8 @@ module.exports.metadata =
     "cordova-plugin-mauron85-background-geolocation": "2.2.5",
     "cordova-plugin-app-event": "1.2.0",
     "de.appplant.cordova.plugin.local-notification": "0.8.5-dev",
-    "cordova-plugin-google-analytics": "1.7.4"
+    "cordova-plugin-google-analytics": "1.7.4",
+    "cordova-plugin-email": "1.2.6"
 }
 // BOTTOM OF METADATA
 });

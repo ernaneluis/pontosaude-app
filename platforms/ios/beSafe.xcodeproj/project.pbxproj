@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0162244B1E0A4121AE911465 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E866C8FF811F4C20AD7D7047 /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		017525DE97AB48D0BAD2BF72 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 439B95722F014700AB02539F /* NSData+Base64.m */; };
@@ -95,6 +94,9 @@
 		EF17A17C378448C38CE5BB35 /* UILocalNotification+APPLocalNotification.ios9.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0242C5E35A47BB9259CE60 /* UILocalNotification+APPLocalNotification.ios9.m */; };
 		EF77130DF8F0439BB7B48A74 /* Polyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A354E52B0544CABCE19156 /* Polyline.m */; };
 		FE6FF3592F10421CA8385E2B /* GroundOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = B270F012BE9F497192F189AE /* GroundOverlay.m */; };
+		83FB140664D94D07AE6650AF /* APPEmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = A59F8A028CF44B6B95782A25 /* APPEmailComposer.m */; };
+		AF9FC1CDBA7D44C1943E8AD0 /* APPEmailComposerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = FAED65377030446CA7430486 /* APPEmailComposerImpl.m */; };
+		6628714C8D7F4F80A40B297E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BE6B291CFC4FD992F5C1F1 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +283,11 @@
 		FC373621BF4E42BFA95302FD /* Map.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = Map.h; path = "cordova-plugin-googlemaps/Map.h"; sourceTree = "<group>"; };
 		FCEC0AF8D2CC4C35B2761ABF /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = "libc++.tbd"; sourceTree = "<group>"; };
 		FFB9C6E8A6BF46EE8C6BF949 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "beSafe/Plugins/cordova-plugin-google-analytics/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
+		A59F8A028CF44B6B95782A25 /* APPEmailComposer.m */ = {isa = PBXFileReference; name = "APPEmailComposer.m"; path = "cordova-plugin-email/APPEmailComposer.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		FAED65377030446CA7430486 /* APPEmailComposerImpl.m */ = {isa = PBXFileReference; name = "APPEmailComposerImpl.m"; path = "cordova-plugin-email/APPEmailComposerImpl.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		01D4AD421BCD46B298D09639 /* APPEmailComposer.h */ = {isa = PBXFileReference; name = "APPEmailComposer.h"; path = "cordova-plugin-email/APPEmailComposer.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		0077AF50AF9A4B67B9196F3B /* APPEmailComposerImpl.h */ = {isa = PBXFileReference; name = "APPEmailComposerImpl.h"; path = "cordova-plugin-email/APPEmailComposerImpl.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		02BE6B291CFC4FD992F5C1F1 /* MessageUI.framework */ = {isa = PBXFileReference; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +319,7 @@
 				A36064A7B33442C892FAD6FF /* libAdIdAccess.a in Frameworks */,
 				0B803F0AB15049DDA3E1A300 /* AdSupport.framework in Frameworks */,
 				92015F7307474AE0B6EC6670 /* libz.dylib in Frameworks */,
+				6628714C8D7F4F80A40B297E /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +413,7 @@
 				4CFEC322B76A420E87A2E022 /* libAdIdAccess.a */,
 				A95B89B8A83547FD99B58495 /* AdSupport.framework */,
 				C0CF757F85084440973681B9 /* libz.dylib */,
+				02BE6B291CFC4FD992F5C1F1 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -553,6 +562,10 @@
 				A15BE55D365445F788DA8789 /* GAIEcommerceProduct.h */,
 				CADE57A18E72485F8E4A603C /* GAIEcommerceProductAction.h */,
 				827F6C0690574F569F5CC8F1 /* GAIEcommercePromotion.h */,
+				A59F8A028CF44B6B95782A25 /* APPEmailComposer.m */,
+				FAED65377030446CA7430486 /* APPEmailComposerImpl.m */,
+				01D4AD421BCD46B298D09639 /* APPEmailComposer.h */,
+				0077AF50AF9A4B67B9196F3B /* APPEmailComposerImpl.h */,
 			);
 			name = Plugins;
 			path = beSafe/Plugins;
@@ -731,6 +744,8 @@
 				3F2CF7F85B2D4F21A930E5F6 /* UIApplication+APPLocalNotification.ios9.m in Sources */,
 				EF17A17C378448C38CE5BB35 /* UILocalNotification+APPLocalNotification.ios9.m in Sources */,
 				12E16461332841A4A068AD58 /* UniversalAnalyticsPlugin.m in Sources */,
+				83FB140664D94D07AE6650AF /* APPEmailComposer.m in Sources */,
+				AF9FC1CDBA7D44C1943E8AD0 /* APPEmailComposerImpl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,16 @@
 
   <ion-navbar>
     <ion-title>{{empresa.nome}}</ion-title>
+
+    <ion-buttons end>
+    <button ion-button icon-only (click)="report()">
+      <ion-icon name="warning" ></ion-icon>
+    </button>
+  </ion-buttons>
+
   </ion-navbar>
+
+
 
 </ion-header>
 
@@ -21,6 +30,8 @@
   </ion-card-header>
 
   <ion-card-content>
+  <img src="{{streetview}}"/>
+
     <ion-item>
         <p>{{empresa.rua}}, {{empresa.numero}},  {{empresa.bairro}}</p>
         <p>{{empresa.complemento}} </p>
@@ -32,15 +43,12 @@
     <ion-row>
 
       <ion-col center text-center>
-        <ion-note>
-          3km
-          <ion-badge item-right>260km</ion-badge>
-        </ion-note>
+        <ion-note>{{distance}} Km</ion-note>
       </ion-col>
 
-      <ion-col>
-        <button ion-button icon-left clear>
-          <ion-icon name="thumbs-up"></ion-icon>
+      <ion-col center text-center>
+        <button ion-button icon-left (click)=openRoute() >
+          <ion-icon name="map"></ion-icon>
           <div>Rota</div>
         </button>
       </ion-col>
@@ -57,15 +65,9 @@
   </ion-list>
 </ion-card>
 
-<ion-card>
-  <ion-card-header>   Serviços de Apoio  </ion-card-header>
-  <ion-list>
-    <ion-item *ngFor="let item of info?.servicos_apoio"> <p>{{item.nome}}</p>  </ion-item>
-  </ion-list>
-</ion-card>
 
 <ion-card>
-  <ion-card-header>    Classificação </ion-card-header>
+  <ion-card-header>    Serviços </ion-card-header>
   <ion-list>
     <ion-item *ngFor="let item of info?.servicos_classificacao"> <p>{{item.descricao}}</p>  </ion-item>
   </ion-list>
@@ -78,6 +80,12 @@
   </ion-list>
 </ion-card>
 
+<ion-card>
+  <ion-card-header>   Serviços de Apoio  </ion-card-header>
+  <ion-list>
+    <ion-item *ngFor="let item of info?.servicos_apoio"> <p>{{item.nome}}</p>  </ion-item>
+  </ion-list>
+</ion-card>
 
 
 <ion-card >

@@ -34,6 +34,9 @@
         <param name="android-package" value="io.ionic.keyboard.IonicKeyboard" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="EmailComposer">
+        <param name="android-package" value="de.martinreinhardt.cordova.plugins.email.EmailComposer" />
+    </feature>
     <name>beSafe</name>
     <description>An awesome Security App</description>
     <author email="ernane.luis@gmail.com" href="http://www.ernaneluis.com.br">Ernane Luis</author>

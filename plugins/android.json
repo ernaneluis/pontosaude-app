@@ -41,6 +41,9 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "pro.schild.besafe"
+        },
+        "cordova-plugin-email": {
+            "PACKAGE_NAME": "pro.schild.besafe"
         }
     },
     "dependent_plugins": {

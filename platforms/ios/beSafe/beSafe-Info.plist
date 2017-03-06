@@ -49,6 +49,7 @@
     <array>
       <string>googlechromes</string>
       <string>comgooglemaps</string>
+      <string>mailto</string>
     </array>
     <key>CFBundleURLTypes</key>
     <array>

@@ -5,16 +5,10 @@
   <ion-navbar>
 
     <ion-title>
-      beSafe
+      Ponto Saúde
+
+
    </ion-title>
-
-
-     <ion-buttons end>
-     <button ion-button icon-only (click)="changeMapStyle()">
-       <ion-icon name="settings" ></ion-icon>
-     </button>
-   </ion-buttons>
-
 
   </ion-navbar>
 </ion-header>
@@ -25,16 +19,18 @@
     <button ion-fab color="light" (click)="showMyLocation()" ><ion-icon name="locate" id="icon-map"></ion-icon></button>
   </ion-fab>
 
-  <ion-fab right bottom>
+  <!-- <ion-fab right bottom>
     <button ion-fab color="danger" (click)="createIssue()" ><ion-icon name="add" id="icon-map"></ion-icon></button>
-  </ion-fab>
+  </ion-fab> -->
 
 
 
     <ion-grid id="grid2"  ui-draggable="false" >
       <ion-row class="subtitle">
           <ion-col >
-            crimesQuant
+            <ion-badge style='margin-left: 5px;background-color: red;' item-right> SUS </ion-badge>
+            <ion-badge style='margin-left: 5px;background-color: royalblue;' item-right> Particular </ion-badge>
+            <ion-badge style='margin-left: 5px;background-color: green;' item-right> Ambos </ion-badge>
           </ion-col>
         </ion-row>
     </ion-grid>

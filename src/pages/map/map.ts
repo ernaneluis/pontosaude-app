@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Geolocation,Geoposition } from 'ionic-native';
-
 import { LoadingController,AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
@@ -11,6 +10,7 @@ import { DataService } from '../../providers/data-service';
 import 'rxjs/Rx';
 import * as moment from 'moment';
 import { Events } from 'ionic-angular';
+import { ViewPage } from '../view/view';
 
 declare var google;
 
@@ -27,22 +27,14 @@ export class GoogleMapView {
 
   @ViewChild('map') mapElement: ElementRef;
   public map: any;
-  public fire: any;
-  // public crimes: FirebaseListObservable<any>;
-  // query: FirebaseListObservable<any[]>;
   public loader: any;
   public userPosition: any;
   public dataPoints: any;
   mapModel: MapModel;
-  public safe: any;
-  pointsData: any;
-  crimeTypeTranslation:any;
-  mapStyleColor:any = true;
-  interpolatedPoints:any = {heatmap:[], circle:[]};
   bounds: any;
+  markers: any;
 
  constructor(private navCtrl: NavController,
-  //  public af: AngularFire,
    public loadingCtrl: LoadingController,
    public toastCtrl: ToastController,
    public locationTracker: LocationTracker,
@@ -53,26 +45,26 @@ export class GoogleMapView {
 
 
    this.mapModel = new MapModel();
+   this.markers = []
 
+   this.loader = this.loadingCtrl.create({
+     content:   "Carregando..."
+   });
 
-
-       this.loader = this.loadingCtrl.create({
-         content:   "wait"
-       });
-       this.loader.present();
-
-      setTimeout(() => {
-         this.loader.dismiss();
-       }, 5000);
-
-
-    this.locationTracker.startBackgroundTracking();
  }
 
 // Load map only after view is initialize
 ionViewDidLoad()
 {
+  console.log("ionViewDidLoad")
   this.loadMap();
+}
+
+ionViewWillEnter()
+{
+  console.log("ionViewWillEnter")
+   /*this.dataPoints = this.dataService.points;
+   clearMarkers()*/
 }
 
 mapZoomChanged(zoom)
@@ -91,6 +83,8 @@ mapZoomChanged(zoom)
 
 loadMap()
 {
+
+    this.loader.present();
 
     this.locationTracker.getForegroundPosition().then( (position) => {
 
@@ -125,8 +119,6 @@ loadMap()
               this.loadPointsFromBounds(this.bounds);
         });
 
-
-
     });
 
 
@@ -145,28 +137,51 @@ loadMap()
         nelng:bounds.getNorthEast().lng()
       };
 
-      this.dataService.getPointsFromLocation(data).then(data => {
-         this.dataPoints = data;
+      // this.loader.onDidDismiss(() =>
+      // {
 
-        this.events.publish('data:loaded', data);
+          this.dataService.getPointsFromLocation(data).then(data =>
+          {
+            setTimeout(() =>
+            {
 
-         if(this.dataPoints.length == 0)
-         {
-           this.showPopup("fail", "failMsg")
-         }
-         else
-         {
-           for(var i =0; i< this.dataPoints.length; i ++)
-           {
-             var marker = this.mapModel.addMarker(this.map, this.dataPoints[i])
-             this.addInfoWindow(this.map, marker, this.dataPoints[i])
-           }
+              this.dataPoints = data;
+              this.events.publish('data:loaded', data);
 
-         }
+               if(this.dataPoints.length == 0)
+               {
+                 this.showPopup("fail", "failMsg")
+               }
+               else
+               {
+                 for(var i =0; i< this.dataPoints.length; i ++)
+                 {
+                   var marker = this.mapModel.addMarker(this.map, this.dataPoints[i])
+                   this.addInfoWindow(this.map, marker, this.dataPoints[i])
+                   this.markers.push(marker)
+                 }
+               }
 
-      });
+               this.loader.dismiss();
+            }, 1000);
+
+          });
+
+
 
   }
+
+  setMapOnAll(map)
+  {
+      for (var i = 0; i < this.markers.length; i++)
+      {
+        this.markers[i].setMap(map);
+      }
+  }
+  // Removes the markers from the map, but keeps them in the array.
+  clearMarkers() {
+     this.setMapOnAll(null);
+   }
 
   addInfoWindow(map, marker, data)
   {
@@ -176,29 +191,38 @@ loadMap()
        google.maps.event.addListener(marker, 'click', () => {
 
          let content = "<h5>" + data.nome + "</h5>";
+        //  content += "<img src='" + this.mapModel.getStreetView(data, "350x200") +"'/>";
          content += "<p>" + data.endereco_completo + "<p>";
          content += "<p>" + data.tipo + "<p>";
+
+         for(var i =0;i <data.convenio.length;i++)
+         {
+            content += "<ion-badge style='margin-left: 5px;' item-right>" + data.convenio[i] + "</ion-badge>";
+         }
 
          var div = document.createElement('div');
          div.innerHTML = content;
 
          let infoWindow = new google.maps.InfoWindow({
-           content: div
+           content: div,
+           maxWidth: 300
          });
 
           infoWindow.open(map, marker);
 
-          div.onclick = function(){
-            alert(data.id)
+          div.onclick = () =>{
+            // alert(data.id)
+              console.log("open view")
+              this.openTest(data)
           };
 
         });
-
-
-        //-3.734169, -38.531445
   }
 
-
+  openTest(data)
+  {
+    this.navCtrl.push(ViewPage, {info: data})
+  }
 
 
   showMyLocation()
@@ -212,28 +236,7 @@ loadMap()
     this.navCtrl.push(ReportPage);
   }
 
-  changeMapStyle()
-  {
-      if(this.mapStyleColor)
-      {
-        this.mapModel.clearHeatmap();
 
-        if(this.interpolatedPoints.circle.length == 0)
-          this.interpolatedPoints.circle = this.mapModel.interpolatePoints(this.pointsData, this.mapModel.interpolationFactor.circle);
-
-        this.mapModel.addPointsAsCircle(this.map, this.interpolatedPoints.circle)
-        this.mapStyleColor = false
-      }
-      else {
-        this.mapModel.clearCircles();
-
-        if(this.interpolatedPoints.heatmap.length == 0)
-          this.interpolatedPoints.heatmap = this.mapModel.interpolatePoints(this.pointsData, this.mapModel.interpolationFactor.heatmap);
-
-        this.mapModel.addPointsToHeatmap(this.map,   this.interpolatedPoints.heatmap);
-        this.mapStyleColor = true
-      }
-  }
 
 
   showPopup(title, text)

@@ -7,14 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>List</ion-title>
+    <ion-title>Lista</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
+
 <ion-content padding>
 
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
 
   <ion-card *ngFor="let data of dataPoints" (click) = "viewOpen(data)">
@@ -25,7 +27,8 @@
       <p>
         {{data.endereco_completo}}
       </p>
-      <ion-badge item-right *ngFor="let item of data.convenio" >{{item}} </ion-badge>
+      {{data?.distance}} Km
+      <ion-badge style="margin-left: 5px;" item-right *ngFor="let item of this.dataService.getType(data)" >{{item}} </ion-badge>
 
     </ion-card-content>
   </ion-card>

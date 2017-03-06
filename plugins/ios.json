@@ -46,6 +46,9 @@
         },
         "cordova-plugin-google-analytics": {
             "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        },
+        "cordova-plugin-email": {
+            "PACKAGE_NAME": "pro.schild.besafe"
         }
     },
     "dependent_plugins": {

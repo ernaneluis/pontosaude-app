@@ -32809,6 +32809,10 @@ sub {
   }
 }
 
+page-list .background, page-list .background .pane, page-list .background .item, page-list .background .item-complex .item-content {
+  background-color: yellow;
+}
+
 .ios map .scroll-content, .md map .scroll-content {
   height: 100%;
 }
@@ -32868,7 +32872,7 @@ sub {
 .ios map #grid2, .md map #grid2 {
   z-index: 999;
   position: absolute;
-  bottom: 6.3rem;
+  bottom: 11rem;
 }
 
 .ios map #grid2 .subtitle, .md map #grid2 .subtitle {
@@ -32876,7 +32880,6 @@ sub {
 }
 
 .ios map #grid2 ion-col, .md map #grid2 ion-col {
-  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 12px;
   text-align: center;
   margin: 0 auto;
@@ -32913,4 +32916,8 @@ page-report-two ion-label, page-report-two .select-text {
 
 page-report-two .invalid {
   border: 1px solid #ea6153;
+}
+
+page-view ion-content {
+  background-color: cornflowerblue;
 }
