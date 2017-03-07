@@ -1,7 +1,25 @@
 page-view {
 
-  ion-content {
-    background-color: cornflowerblue;
-  }
+.content-ios {
+    background-color: whitesmoke;
 
+  }
+  .list-item
+  {
+    font-size: 12px;
+    color: grey;
+    white-space: normal;
+  }
+  .list-item-desc
+  {
+    font-size: 12px;
+    color: grey;
+    white-space: normal;
+    font-weight: bold;
+  }
+  .card-ios
+  {
+        width: 100%;
+        margin: 15px 0px 15px 0px;
+  }
 }

@@ -37,8 +37,8 @@
     <feature name="EmailComposer">
         <param name="android-package" value="de.martinreinhardt.cordova.plugins.email.EmailComposer" />
     </feature>
-    <name>beSafe</name>
-    <description>An awesome Security App</description>
+    <name>PontoSaude</name>
+    <description>Descubra empresas médicas mais próxima de você </description>
     <author email="ernane.luis@gmail.com" href="http://www.ernaneluis.com.br">Ernane Luis</author>
     <content src="index.html" />
     <access origin="*" />
@@ -78,4 +78,5 @@
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="loadUrlTimeoutValue" value="700000" />
 </widget>

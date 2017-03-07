@@ -32813,6 +32813,15 @@ page-list .background, page-list .background .pane, page-list .background .item,
   background-color: yellow;
 }
 
+page-list .content-ios {
+  background-color: whitesmoke;
+}
+
+page-list .card-ios {
+  width: 100%;
+  margin: 15px 0px 15px 0px;
+}
+
 .ios map .scroll-content, .md map .scroll-content {
   height: 100%;
 }
@@ -32885,10 +32894,7 @@ page-list .background, page-list .background .pane, page-list .background .item,
   margin: 0 auto;
   font-size: 1.2rem;
   color: white;
-  -webkit-flex: 0 0 58%;
-  -ms-flex: 0 0 58%;
-  flex: 0 0 58%;
-  max-width: 58%;
+  margin-left: 20%;
 }
 
 page-report #map {
@@ -32918,6 +32924,24 @@ page-report-two .invalid {
   border: 1px solid #ea6153;
 }
 
-page-view ion-content {
-  background-color: cornflowerblue;
+page-view .content-ios {
+  background-color: whitesmoke;
+}
+
+page-view .list-item {
+  font-size: 12px;
+  color: grey;
+  white-space: normal;
+}
+
+page-view .list-item-desc {
+  font-size: 12px;
+  color: grey;
+  white-space: normal;
+  font-weight: bold;
+}
+
+page-view .card-ios {
+  width: 100%;
+  margin: 15px 0px 15px 0px;
 }

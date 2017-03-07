@@ -90,20 +90,21 @@ export class ViewPage {
   {
       console.log("report")
       EmailComposer.isAvailable().then((available: boolean) =>{
-       if(available) {
-         //Now we know we can send
-         let email = {
-           to: 'ernane.luis@gmail.com',
-           subject: 'Reportar um Problema',
-           body: 'Problema com:',
-           isHtml: true
-         };
 
-         // Send a text message using default options
-         EmailComposer.open(email);
-       }
       });
 
+      // if(available) {
+        //Now we know we can send
+        let email = {
+          to: 'ernane.luis@gmail.com',
+          subject: 'Reportar um Problema',
+          body: 'Problema com:',
+          isHtml: true
+        };
+
+        // Send a text message using default options
+        EmailComposer.open(email);
+      // }
 
   }
 

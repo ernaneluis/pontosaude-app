@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{empresa.nome}}</ion-title>
+    <!-- <ion-title>{{empresa.nome}}</ion-title> -->
 
     <ion-buttons end>
     <button ion-button icon-only (click)="report()">
@@ -24,26 +24,30 @@
 
 <ion-content padding>
   <ion-card>
+    <img src="{{streetview}}"/>
+  <!-- <ion-card-header>
 
-  <ion-card-header>
-    {{empresa.nome}}
-  </ion-card-header>
+  </ion-card-header> -->
 
   <ion-card-content>
-  <img src="{{streetview}}"/>
 
-    <ion-item>
+    <ion-card-title>
+        {{empresa.nome}}
+      </ion-card-title>
+
+
         <p>{{empresa.rua}}, {{empresa.numero}},  {{empresa.bairro}}</p>
         <p>{{empresa.complemento}} </p>
         <p>{{empresa.cep}} </p>
         <p>{{empresa.municipio}}, {{empresa.uf}} </p>
-      </ion-item>
+
   </ion-card-content>
 
     <ion-row>
 
       <ion-col center text-center>
-        <ion-note>{{distance}} Km</ion-note>
+        <!-- <ion-note>{{distance}} Km</ion-note> -->
+        <ion-badge>{{distance}} Km </ion-badge>
       </ion-col>
 
       <ion-col center text-center>
@@ -61,7 +65,10 @@
 <ion-card>
   <ion-card-header>   Atendimento Prestado </ion-card-header>
   <ion-list>
-    <ion-item *ngFor="let item of info?.atendimento_prestado">  <ion-badge item-right>{{item.convenio}} </ion-badge> <p>{{item.tipo}} </p>   </ion-item>
+    <ion-item *ngFor="let item of info?.atendimento_prestado" >
+        <p>{{item.tipo}} </p>
+        <p><ion-badge style="margin:0px">{{item.convenio}} </ion-badge> </p>
+    </ion-item>
   </ion-list>
 </ion-card>
 
@@ -69,21 +76,28 @@
 <ion-card>
   <ion-card-header>    Serviços </ion-card-header>
   <ion-list>
-    <ion-item *ngFor="let item of info?.servicos_classificacao"> <p>{{item.descricao}}</p>  </ion-item>
+    <ion-item *ngFor="let item of info?.servicos_classificacao">
+      <p class="list-item">{{item.nome}}</p>
+      <p class="list-item-desc">{{item.descricao}}</p>
+    </ion-item>
   </ion-list>
 </ion-card>
 
 <ion-card>
   <ion-card-header>   Serviços Especializados </ion-card-header>
   <ion-list>
-    <ion-item *ngFor="let item of info?.servicos_especializados"> <p>{{item.nome}} </p> </ion-item>
+    <ion-item *ngFor="let item of info?.servicos_especializados">
+      <p class="list-item">{{item.nome}} </p>
+    </ion-item>
   </ion-list>
 </ion-card>
 
 <ion-card>
   <ion-card-header>   Serviços de Apoio  </ion-card-header>
   <ion-list>
-    <ion-item *ngFor="let item of info?.servicos_apoio"> <p>{{item.nome}}</p>  </ion-item>
+    <ion-item *ngFor="let item of info?.servicos_apoio">
+      <p class="list-item">{{item.nome}}</p>
+    </ion-item>
   </ion-list>
 </ion-card>
 
@@ -91,7 +105,9 @@
 <ion-card >
   <ion-card-header>   Leitos </ion-card-header>
   <ion-list>
-    <ion-item *ngFor="let item of info?.leitos" > <p>{{item.nome}}</p>  </ion-item>
+    <ion-item *ngFor="let item of info?.leitos" >
+      <p class="list-item">{{item.nome}}</p>
+    </ion-item>
   </ion-list>
 </ion-card>
 
