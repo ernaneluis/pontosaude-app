@@ -8,53 +8,53 @@
     },
     "installed_plugins": {
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-device": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-google-analytics": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-mauron85-background-geolocation": {
             "ACCOUNT_TYPE": "$PACKAGE_NAME.account",
             "CONTENT_AUTHORITY": "$PACKAGE_NAME",
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "de.appplant.cordova.plugin.local-notification": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-email": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         }
     },
     "dependent_plugins": {
         "com.googlemaps.ios": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-app-event": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "pro.schild.besafe"
+            "PACKAGE_NAME": "info.pontosaude"
         }
     }
 }
