@@ -24,8 +24,6 @@ export class MyApp {
   constructor(public platform: Platform)
   {
 
-    // this.rootPage = GoogleMapView;
-
 
     this.initializeApp();
 
@@ -41,32 +39,26 @@ export class MyApp {
         Splashscreen.hide();
 
         // google
-        GoogleAnalytics.debugMode()
-        GoogleAnalytics.startTrackerWithId("UA-89603972-1");
+        console.log("GoogleAnalytics UA-93159289-2")
 
-        GoogleAnalytics.enableUncaughtExceptionReporting(true).then((_success) => {
-            console.log(_success)
-          }).catch((_error) => {
-            console.log(_error)
-          });
+        GoogleAnalytics.startTrackerWithId('UA-93159289-2', 30)
+         .then(() => {
+           console.log('Google analytics is ready now');
+              GoogleAnalytics.trackView("App Init");
+              // GoogleAnalytics.debugMode()
+              GoogleAnalytics.setAllowIDFACollection(true);
+           // Tracker is ready
+           // You can now track pages or set additional information such as AppVersion or UserId
+         })
+         .catch((e) =>
+         {
+           console.log('Error starting GoogleAnalytics: ' + e)
+           console.log('Error starting GoogleAnalytics: ', e)
+         });
+
 
     });
   }
-
-  // openPage(page) {
-  //   // Reset the content nav to have just this page
-  //   // we wouldn't want the back button to show in this scenario
-  //   if(page.component == "Logout")
-  //   {
-  //
-  //   }
-  //   else
-  //   {
-  //     this.nav.setRoot(page.component);
-  //   }
-  //
-  // }
-
 
 
 }

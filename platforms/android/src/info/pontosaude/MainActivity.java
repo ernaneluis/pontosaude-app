@@ -17,7 +17,7 @@
        under the License.
  */
 
-package pro.schild.besafe;
+package info.pontosaude;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

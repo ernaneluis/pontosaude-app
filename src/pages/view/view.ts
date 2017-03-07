@@ -97,8 +97,8 @@ export class ViewPage {
         //Now we know we can send
         let email = {
           to: 'ernane.luis@gmail.com',
-          subject: 'Reportar um Problema',
-          body: 'Problema com:',
+          subject: '[Ponto Saúde] Reportar um Problema',
+          body: '[ ] Lugar não existe. [ ] Endereço Errado. [ ]Outra Informação Errada.  Por favor descreva o problema:',
           isHtml: true
         };
 

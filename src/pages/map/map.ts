@@ -11,6 +11,8 @@ import 'rxjs/Rx';
 import * as moment from 'moment';
 import { Events } from 'ionic-angular';
 import { ViewPage } from '../view/view';
+import { Platform } from 'ionic-angular';
+import { GoogleAnalytics} from 'ionic-native';
 
 declare var google;
 
@@ -40,6 +42,7 @@ export class GoogleMapView {
    public locationTracker: LocationTracker,
    public dataService: DataService,
    public events: Events,
+   public platform: Platform,
    public alertCtrl: AlertController) {
 
 
@@ -84,45 +87,58 @@ mapZoomChanged(zoom)
 loadMap()
 {
 
-    this.loader.present();
+        this.loader.present();
 
-    this.locationTracker.getForegroundPosition().then( (position) => {
+        this.platform.ready().then(() =>
+        {
 
-      console.log("user loc " +position.lat + " " + position.lng)
-      //debugger
-
-      let latLng = new google.maps.LatLng(-3.7337621, -38.5350491);
-      // let latLng = new google.maps.LatLng(-23.4744096, -46.6700553);
-
-      // let latLng = new google.maps.LatLng(position.lat, position.lng);
-
-      this.userPosition = new google.maps.LatLng(position.lat, position.lng);
-
-      let mapOptions = this.mapModel.getMapConfig();
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-      this.map.setCenter(latLng);
-
-      this.mapModel.addUserPosition(this.map, latLng);
-
-       this.map.addListener('zoom_changed', () => {
-          this.bounds = this.map.getBounds()
-       });
+                GoogleAnalytics.startTrackerWithId('UA-93159289-2', 30).then(() => {
+                      console.log('Google analytics Map Page');
+                      GoogleAnalytics.trackView("Map Page");
+                      GoogleAnalytics.setAllowIDFACollection(true);
+                 }).catch(e =>console.log('Error starting GoogleAnalytics: ', e));
 
 
-        this.map.addListener('zoom_changed', () => {
-          this.mapZoomChanged(this.map.getZoom())
+
+                this.locationTracker.getForegroundPosition().then( (position) => {
+
+                  console.log("user loc " +position.lat + " " + position.lng)
+
+                  //debugger
+                  // let latLng = new google.maps.LatLng(-3.7337621, -38.5350491);
+                  // let latLng = new google.maps.LatLng(-23.4744096, -46.6700553);
+
+                  let latLng = new google.maps.LatLng(position.lat, position.lng);
+
+                  this.userPosition = new google.maps.LatLng(position.lat, position.lng);
+
+                  let mapOptions = this.mapModel.getMapConfig();
+                  this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+                  this.map.setCenter(latLng);
+
+                  this.mapModel.addUserPosition(this.map, latLng);
+
+                   this.map.addListener('zoom_changed', () => {
+                      this.bounds = this.map.getBounds()
+                   });
+
+
+                    this.map.addListener('zoom_changed', () => {
+                      this.mapZoomChanged(this.map.getZoom())
+                    });
+
+                    google.maps.event.addListenerOnce(this.map, 'idle', () => {
+                          //loaded fully
+                          this.bounds = this.map.getBounds()
+                          this.loadPointsFromBounds(this.bounds);
+                    });
+
+                });
+
+
         });
 
-        google.maps.event.addListenerOnce(this.map, 'idle', () => {
-              //loaded fully
-              this.bounds = this.map.getBounds()
-              this.loadPointsFromBounds(this.bounds);
-        });
-
-    });
-
-
-  }
+}
 
 
 
@@ -150,7 +166,7 @@ loadMap()
 
                if(this.dataPoints.length == 0)
                {
-                 this.showPopup("fail", "failMsg")
+                 this.showPopup("Falha!", "Nenhuma informação cadastrada.")
                }
                else
                {

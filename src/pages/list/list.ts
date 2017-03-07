@@ -101,7 +101,6 @@ export class ListPage {
   {
       for(var i=0; i< data.length; i++)
       {
-          console.log('user lat ' +   this.locationTracker.lat);
 
           var dist = this.mapModel.getDistanceFromLocationInMeters(
                             {lat: this.locationTracker.lat, lng: this.locationTracker.lng},

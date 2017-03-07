@@ -32809,8 +32809,8 @@ sub {
   }
 }
 
-page-list .background, page-list .background .pane, page-list .background .item, page-list .background .item-complex .item-content {
-  background-color: yellow;
+page-list .content-md {
+  background-color: whitesmoke;
 }
 
 page-list .content-ios {
@@ -32925,6 +32925,10 @@ page-report-two .invalid {
 }
 
 page-view .content-ios {
+  background-color: whitesmoke;
+}
+
+page-view .content-md {
   background-color: whitesmoke;
 }
 

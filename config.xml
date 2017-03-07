@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="pro.schild.besafe" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="info.pontosaude" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>PontoSaude</name>
   <description>Descubra empresas médicas mais próxima de você </description>
   <author email="ernane.luis@gmail.com" href="http://www.ernaneluis.com.br">Ernane Luis</author>
@@ -8,7 +8,7 @@
   <plugin name="cordova-plugin-mauron85-background-geolocation" spec="^2.2.0">
     <variable name="ALWAYS_USAGE_DESCRIPTION" value="Precisamos de sua localização para funcionar"/>
   </plugin>
-  <plugin name="org.apache.cordova.core.geolocation"></plugin>
+  <plugin name="org.apache.cordova.core.geolocation"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -73,12 +73,21 @@
   <preference name="FadeSplashScreenDuration" value="300"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
-  <preference name="loadUrlTimeoutValue" value="700000" />
+  <preference name="loadUrlTimeoutValue" value="700000"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
   <feature name="Geolocation">
-    <param name="ios-package" value="CDVLocation" />
+    <param name="ios-package" value="CDVLocation"/>
+  </feature>
+  <feature name="UniversalAnalytics">
+    <param name="ios-package" value="UniversalAnalyticsPlugin" />
+  </feature>
+  <feature name="UniversalAnalytics">
+    <param name="android-package" value="com.danielcwilson.plugins.analytics.UniversalAnalyticsPlugin" />
+  </feature>
+  <feature name="UniversalAnalytics">
+    <param name="wp-package" value="UniversalAnalyticsPlugin" />
   </feature>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>
