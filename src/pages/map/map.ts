@@ -229,13 +229,13 @@ loadMap()
           div.onclick = () =>{
             // alert(data.id)
               console.log("open view")
-              this.openTest(data)
+              this.openView(data)
           };
 
         });
   }
 
-  openTest(data)
+  openView(data)
   {
     this.navCtrl.push(ViewPage, {info: data})
   }

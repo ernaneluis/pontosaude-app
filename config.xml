@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="info.pontosaude" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="info.pontosaude" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>PontoSaude</name>
   <description>Descubra empresas médicas mais próxima de você </description>
   <author email="ernane.luis@gmail.com" href="http://www.ernaneluis.com.br">Ernane Luis</author>
