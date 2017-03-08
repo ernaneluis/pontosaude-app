@@ -103,6 +103,10 @@
                         {
                             "xml": "<feature name=\"EmailComposer\"><param name=\"ios-package\" value=\"APPEmailComposer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AdMob\"><param name=\"ios-package\" value=\"CDVAdMobPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -158,6 +162,12 @@
                     "UIBackgroundModes": [
                         {
                             "xml": "<array><string>location</string></array>",
+                            "count": 1
+                        }
+                    ],
+                    "NSAppTransportSecurity": [
+                        {
+                            "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /></dict>",
                             "count": 1
                         }
                     ]
@@ -216,6 +226,12 @@
             "PACKAGE_NAME": "com.ionicframework.schildapp562011"
         },
         "cordova-plugin-email": {
+            "PACKAGE_NAME": "info.pontosaude"
+        },
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "info.pontosaude"
+        },
+        "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "info.pontosaude"
         }
     },
@@ -371,6 +387,14 @@
                 "cordova.plugins.email",
                 "plugin.email"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+            "id": "cordova-plugin-admobpro.AdMob",
+            "pluginId": "cordova-plugin-admobpro",
+            "clobbers": [
+                "window.AdMob"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -389,6 +413,8 @@
         "cordova-plugin-app-event": "1.2.0",
         "de.appplant.cordova.plugin.local-notification": "0.8.5-dev",
         "cordova-plugin-google-analytics": "1.7.4",
-        "cordova-plugin-email": "1.2.6"
+        "cordova-plugin-email": "1.2.6",
+        "cordova-plugin-extension": "1.5.1",
+        "cordova-plugin-admobpro": "2.26.0"
     }
 }

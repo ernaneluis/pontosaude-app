@@ -19,6 +19,7 @@ import { LocationTracker } from '../../providers/location-tracker';
 export class ListPage {
 
    dataPoints:any;
+   searchDataPoints:Array<any>;
    loader: any;
    mapModel: MapModel;
 
@@ -31,6 +32,7 @@ export class ListPage {
     public events: Events)
   {
       this.mapModel = new MapModel();
+      this.searchDataPoints = [];
   }
 
   ionViewDidLoad()
@@ -43,15 +45,20 @@ export class ListPage {
     //   console.log('Welcome', data);
     // });
 
-      this.loader = this.loadingCtrl.create({
-        content:   "Buscando..."
-      });
+
 
   }
 
   ionViewWillEnter()
   {
-      this.dataPoints  = this.getDistance(this.dataService.points)
+      if(this.searchDataPoints.length > 0)
+      {
+          this.dataPoints = this.getDistance(this.searchDataPoints)
+      }
+      else {
+          this.dataPoints  = this.getDistance(this.dataService.points)
+      }
+
   }
 
   viewOpen(data)
@@ -67,22 +74,30 @@ export class ListPage {
       // if the value is an empty string don't filter the items
       if (val && val.trim() != '' && val.trim().length >= 3)
       {
-
+          console.log("search value")
           this.dataPoints = this.dataPoints.filter((item) => {
             return (item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1);
           })
 
           if(this.dataPoints.length == 0)
           {
+              this.loader = this.loadingCtrl.create({
+                content:   "Buscando..."
+              });
+
               this.loader.present();
 
+              console.log("searchPoints")
               this.dataService.searchPoints(val).then(data =>
               {
-
+                  console.log("got searchPoints")
                   setTimeout(() =>
                   {
                       var array = []
                       array = array.concat(data)
+
+                      this.searchDataPoints = array.concat(data)
+
                       this.dataPoints = this.getDistance(array)
                       this.loader.dismiss();
                   }, 1000);
@@ -93,6 +108,7 @@ export class ListPage {
       }
       else
       {
+          console.log("not search value")
           this.dataPoints  = this.getDistance(this.dataService.points)
       }
   }

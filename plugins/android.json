@@ -44,6 +44,9 @@
         },
         "cordova-plugin-email": {
             "PACKAGE_NAME": "info.pontosaude"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "info.pontosaude"
         }
     },
     "dependent_plugins": {
@@ -54,6 +57,9 @@
             "PACKAGE_NAME": "info.pontosaude"
         },
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "info.pontosaude"
+        },
+        "cordova-plugin-extension": {
             "PACKAGE_NAME": "info.pontosaude"
         }
     }

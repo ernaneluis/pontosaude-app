@@ -51,6 +51,10 @@
                         {
                             "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"de.martinreinhardt.cordova.plugins.email.EmailComposer\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"com.rjfun.cordova.admob.AdMobPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -72,11 +76,11 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-                            "count": 1
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "/manifest/application": [
@@ -142,6 +146,10 @@
                         },
                         {
                             "xml": "<activity android:exported=\"false\" android:launchMode=\"singleInstance\" android:name=\"de.appplant.cordova.plugin.notification.ClickActivity\" android:theme=\"@android:style/Theme.NoDisplay\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:name=\"com.google.android.gms.ads.AdActivity\" android:theme=\"@android:style/Theme.Translucent\" />",
                             "count": 1
                         }
                     ],
@@ -251,6 +259,12 @@
             "PACKAGE_NAME": "info.pontosaude"
         },
         "com.googlemaps.ios": {
+            "PACKAGE_NAME": "info.pontosaude"
+        },
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "info.pontosaude"
+        },
+        "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "info.pontosaude"
         }
     },
@@ -364,6 +378,14 @@
                 "cordova.plugins.email",
                 "plugin.email"
             ]
+        },
+        {
+            "id": "cordova-plugin-admobpro.AdMob",
+            "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+            "pluginId": "cordova-plugin-admobpro",
+            "clobbers": [
+                "window.AdMob"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -381,6 +403,8 @@
         "de.appplant.cordova.plugin.local-notification": "0.8.5-dev",
         "ionic-plugin-keyboard": "2.2.1",
         "cordova-plugin-email": "1.2.6",
-        "com.googlemaps.ios": "2.1.1"
+        "com.googlemaps.ios": "2.1.1",
+        "cordova-plugin-extension": "1.5.1",
+        "cordova-plugin-admobpro": "2.26.0"
     }
 }

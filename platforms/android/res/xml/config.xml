@@ -37,6 +37,10 @@
     <feature name="EmailComposer">
         <param name="android-package" value="de.martinreinhardt.cordova.plugins.email.EmailComposer" />
     </feature>
+    <feature name="AdMob">
+        <param name="android-package" value="com.rjfun.cordova.admob.AdMobPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>PontoSaude</name>
     <description>Descubra empresas médicas mais próxima de você </description>
     <author email="ernane.luis@gmail.com" href="http://www.ernaneluis.com.br">Ernane Luis</author>

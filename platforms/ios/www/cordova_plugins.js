@@ -150,6 +150,14 @@ module.exports = [
             "cordova.plugins.email",
             "plugin.email"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+        "id": "cordova-plugin-admobpro.AdMob",
+        "pluginId": "cordova-plugin-admobpro",
+        "clobbers": [
+            "window.AdMob"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -170,7 +178,9 @@ module.exports.metadata =
     "cordova-plugin-app-event": "1.2.0",
     "de.appplant.cordova.plugin.local-notification": "0.8.5-dev",
     "cordova-plugin-google-analytics": "1.7.4",
-    "cordova-plugin-email": "1.2.6"
+    "cordova-plugin-email": "1.2.6",
+    "cordova-plugin-extension": "1.5.1",
+    "cordova-plugin-admobpro": "2.26.0"
 }
 // BOTTOM OF METADATA
 });

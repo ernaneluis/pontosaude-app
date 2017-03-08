@@ -108,6 +108,14 @@ module.exports = [
             "cordova.plugins.email",
             "plugin.email"
         ]
+    },
+    {
+        "id": "cordova-plugin-admobpro.AdMob",
+        "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+        "pluginId": "cordova-plugin-admobpro",
+        "clobbers": [
+            "window.AdMob"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -127,7 +135,9 @@ module.exports.metadata =
     "de.appplant.cordova.plugin.local-notification": "0.8.5-dev",
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-plugin-email": "1.2.6",
-    "com.googlemaps.ios": "2.1.1"
+    "com.googlemaps.ios": "2.1.1",
+    "cordova-plugin-extension": "1.5.1",
+    "cordova-plugin-admobpro": "2.26.0"
 };
 // BOTTOM OF METADATA
 });

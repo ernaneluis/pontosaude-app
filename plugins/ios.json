@@ -49,6 +49,9 @@
         },
         "cordova-plugin-email": {
             "PACKAGE_NAME": "info.pontosaude"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "info.pontosaude"
         }
     },
     "dependent_plugins": {
@@ -60,6 +63,9 @@
         },
         "cordova-plugin-app-event": {
             "PACKAGE_NAME": "com.ionicframework.schildapp562011"
+        },
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "info.pontosaude"
         }
     }
 }

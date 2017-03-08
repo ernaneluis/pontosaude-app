@@ -7,7 +7,9 @@ import { GoogleAnalytics} from 'ionic-native';
 import { GoogleMapView } from '../pages/map/map';
 import { ListPage } from '../pages/list/list';
 import {ParseModel} from '../models/parse-model';
+import {AdMob} from 'ionic-native';
 
+import {  AdMobPro } from '../providers/admobpro';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +23,7 @@ export class MyApp {
   tab1Root = GoogleMapView;
   tab2Root = ListPage;
 
-  constructor(public platform: Platform)
+  constructor(public platform: Platform, private adMobPro: AdMobPro)
   {
 
 
@@ -56,6 +58,8 @@ export class MyApp {
            console.log('Error starting GoogleAnalytics: ', e)
          });
 
+
+        this.adMobPro.showBanner();
 
     });
   }

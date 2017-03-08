@@ -253,6 +253,7 @@ dependencies {
     compile "com.google.android.gms:play-services-analytics:+"
     compile "com.google.android.gms:play-services-location:+"
     compile "com.android.support:support-v4:+"
+    compile "com.google.android.gms:play-services-ads:+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

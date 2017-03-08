@@ -12,7 +12,7 @@ import { ReportTwoPage } from '../pages/report-two/report-two';
 import { ViewPage } from '../pages/view/view';
 import { LocationTracker } from '../providers/location-tracker';
 import { DataService } from '../providers/data-service';
-
+import { AdMobPro } from '../providers/admobpro';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,6 @@ import { DataService } from '../providers/data-service';
   ],
   imports: [
     IonicModule.forRoot(MyApp)
-
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -37,6 +35,6 @@ import { DataService } from '../providers/data-service';
     ListPage,
     ViewPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, LocationTracker, DataService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, LocationTracker, DataService, AdMobPro]
 })
 export class AppModule {}

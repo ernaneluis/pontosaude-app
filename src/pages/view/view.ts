@@ -5,7 +5,7 @@ import {MapModel} from '../../models/map-model';
 import { LocationTracker } from '../../providers/location-tracker';
 import { LoadingController,AlertController } from 'ionic-angular';
 import { EmailComposer } from 'ionic-native';
-
+import {  AdMobPro } from '../../providers/admobpro';
 /*
   Generated class for the View page.
 
@@ -29,6 +29,7 @@ export class ViewPage {
               public navParams: NavParams,
               public locationTracker: LocationTracker,
               public loadingCtrl: LoadingController,
+              private adMobPro: AdMobPro,
               public dataService: DataService
             )
   {
@@ -51,6 +52,7 @@ export class ViewPage {
       var dist = this.mapModel.getDistanceFromLocationInMeters({lat: this.locationTracker.lat, lng: this.locationTracker.lng}, {lat:this.empresa.lat, lng:this.empresa.lng})
       this.distance = (dist/1000).toFixed(2)
 
+      this.adMobPro.showInterstitial();
   }
 
   ionViewWillEnter()
