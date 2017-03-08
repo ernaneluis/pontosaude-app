@@ -87,7 +87,8 @@ export class AdMobPro {
    	};
 
    	AdMob.setOptions(this._opt);
-   	this.showBanner();
+
+   // 	this.showBanner();
     // this.showInterstitial();
   }
 

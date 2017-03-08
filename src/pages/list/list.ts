@@ -81,26 +81,33 @@ export class ListPage {
 
           if(this.dataPoints.length == 0)
           {
-              this.loader = this.loadingCtrl.create({
+              let loader = this.loadingCtrl.create({
                 content:   "Buscando..."
+                // dismissOnPageChange: true
               });
 
-              this.loader.present();
+              loader.present();
 
               console.log("searchPoints")
               this.dataService.searchPoints(val).then(data =>
               {
                   console.log("got searchPoints")
-                  setTimeout(() =>
-                  {
-                      var array = []
-                      array = array.concat(data)
+                  loader.dismiss().then(() => {
 
-                      this.searchDataPoints = array.concat(data)
+                    var array = []
+                    array = array.concat(data)
 
-                      this.dataPoints = this.getDistance(array)
-                      this.loader.dismiss();
-                  }, 1000);
+                    this.searchDataPoints = array.concat(data)
+
+                    this.dataPoints = this.getDistance(array)
+                  })
+
+
+                  // this.loading.dismiss().then(() => { /* PUT YOUR CODE HERE */ })
+                  // setTimeout(() =>
+                  // {
+                  //    loader.dismiss();
+                  // }, 100);
 
               });
           }

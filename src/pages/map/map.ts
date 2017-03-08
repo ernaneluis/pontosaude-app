@@ -103,20 +103,21 @@ loadMap()
                 this.locationTracker.getForegroundPosition().then( (position) => {
 
                   console.log("user loc " +position.lat + " " + position.lng)
+                  this.userPosition = new google.maps.LatLng(position.lat, position.lng);
+
 
                   //debugger
-                  // let latLng = new google.maps.LatLng(-3.7337621, -38.5350491);
-                  // let latLng = new google.maps.LatLng(-23.4744096, -46.6700553);
-
-                  let latLng = new google.maps.LatLng(position.lat, position.lng);
-
-                  this.userPosition = new google.maps.LatLng(position.lat, position.lng);
+                  // let latLng = new google.maps.LatLng(-3.7337621, -38.5350491);   //fortaleza
+                  // let latLng = new google.maps.LatLng(-23.4744096, -46.6700553); //sp
+                  // let latLng = new google.maps.LatLng(-8.076908, -34.910962); //recife
+                  // let latLng = new google.maps.LatLng(-3.719909, -38.515080);   //fortaleza
+                  // this.userPosition = latLng
 
                   let mapOptions = this.mapModel.getMapConfig();
                   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-                  this.map.setCenter(latLng);
+                  this.map.setCenter(this.userPosition);
 
-                  this.mapModel.addUserPosition(this.map, latLng);
+                  this.mapModel.addUserPosition(this.map, this.userPosition);
 
                    this.map.addListener('zoom_changed', () => {
                       this.bounds = this.map.getBounds()
