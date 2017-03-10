@@ -688,6 +688,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = M8468KAKDY;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -846,6 +847,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ernane Aguiar (M8468KAKDY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = M8468KAKDY;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -872,6 +875,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = info.ponto.saude;
 				PRODUCT_NAME = PontoSaude;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -885,6 +890,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ernane Aguiar (M8468KAKDY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = M8468KAKDY;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -909,6 +916,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = info.ponto.saude;
 				PRODUCT_NAME = PontoSaude;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
